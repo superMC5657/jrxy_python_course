@@ -1,6 +1,6 @@
-#### 请于周六晚24：00之前以jupyter notebook的格式将作业提交至邮箱liyan_zjgsu@163.com
+#### 请于周日晚24：00之前以jupyter notebook的格式将作业提交至邮箱liyan_zjgsu@163.com
 
-（格式要求：请大家将题目和对应的解答写在jupyter notebook中，并在代码中写明注释。）
+（格式要求：请大家将题目和对应的解答写在**jupyter notebook**中，并在代码中写明注释。作业和邮件标题命名方式为：学号_姓名_python_course）
 
 + 创建一个10x10的ndarray对象，且矩阵边界全为1，里面全为0
 
