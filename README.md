@@ -41,8 +41,8 @@ If you have any query or would like to contribute, I would be very happy to hear
 1. Web Crawler I: ([slide and code](/ProgramSession/spider01_learn.ipynb))
 2. Web Crawler II: ([slide and code](/ProgramSession/spider02_learn.ipynb))
 3. Time series basic: Return, mean, variance, correlation of stock prices, visualization, etc ([slide and code](/ProgramSession/time_series_learn.ipynb))
-4. Statistics Tests ([slide and code](/ProgramSession/statistics_learn.ipynb))
-5. Nature Language Processing:  Financial sentiment analysis ([slide and code](/ProgramSession/nlp_learn.ipynb))
+4. Statistics Tests: ([slide and code](/ProgramSession/statistics_learn.ipynb))
+5. Nature Language Processing: ([slide and code](/ProgramSession/nlp_learn.ipynb))
 
 
 #### Part II
