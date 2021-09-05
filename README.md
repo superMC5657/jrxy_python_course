@@ -45,39 +45,3 @@ If you have any query or would like to contribute, I would be very happy to hear
 5. Time series basic: smoothing, return, mean, variance, covariance, correlation, visualization, etc ([slide and code](/ProgramSession/time_series_learn.ipynb))
 6. Statistics Tests: T-test, ChiSquare-test, OLS ([slide and code](/ProgramSession/statistics_learn.ipynb))
 
-
-#### Part II
-
-`Case Study`
-
-1. Bond Pricing
-
-2. Porfolio Management
-
-
-`ML Session`
-
-1. Basic
-   1. Learning Regression
-   2. Logistic Regression
-    
-
-2. Unsupervised Learning:
-   1. K-means Clustering (Fund feature detecting)
-   2. Genetic Algorithm  (early warning)
-   3. Self-Organizing Map ()
-   
- 
-3. Supervised Learning:
-   1. Naive Bayes Classifier
-   2. Decision Tree (Find the best indicator)
-   3. K-nearest neighbor
-
-
-4. Reinforcement Learning:
-   1. Multi-Arm Bandit (portfolio selection)
-   2. Q-learning
-   
-   
-5. Nature Language Processing:
-   1. Financial sentiment analysis
