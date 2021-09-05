@@ -1,6 +1,6 @@
 ## Python in Finance
 
-Applying Python in solving practical issues in finance.  Materials in this repo are designed for students taking my course 《Python在金融中的应用》以及《基于机器学习的投资分析》. 
+Applying Python in solving practical issues in finance.  Materials in this repo are designed for students taking my course 《Python在金融中的应用》. 
 
 If you have any query or would like to contribute, I would be very happy to hear from you by email liyan_zjgsu@163.com. 
 
