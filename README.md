@@ -33,7 +33,7 @@ If you have any query or would like to contribute, I would be very happy to hear
 
 `Data Session`
 
-1. Data base (SQL and NoSQL):  [MySQL](https://www.mysql.com/) and [MongoDB](https://www.mongodb.com/)  (You can use [MariaDB](https://mariadb.org/) as an alternative of MySQL)  ([slide and code](/DataSession/database_learn.ipynb))
+1. Data base (SQL and NoSQL):  [MySQL](https://www.mysql.com/) and [MongoDB*](https://www.mongodb.com/)  (You can use [MariaDB](https://mariadb.org/) as an alternative of MySQL)  ([slide and code](/DataSession/database_learn.ipynb))
 2. API and Data Retrieval:  [Tushare](http://www.tushare.org) ([slide and code](/DataSession/API_and_Data_Retrieval.ipynb))
 
 `Program Session`
@@ -41,7 +41,7 @@ If you have any query or would like to contribute, I would be very happy to hear
 1. Web Crawler I: ([slide and code](/ProgramSession/spider01_learn.ipynb))
 2. Web Crawler II: ([slide and code](/ProgramSession/spider02_learn.ipynb))
 3. Nature Language Processing: ([slide and code](/ProgramSession/nlp_learn.ipynb))
-4. Quantative analysis: Sharpe ratio, Information ratio, Maxmium Drawndown, etc ([slide and code](/ProgramSession/quant_learn.ipynb))
-5. Time series basic: smoothing, return, mean, variance, covariance, correlation, visualization, etc ([slide and code](/ProgramSession/time_series_learn.ipynb))
-6. Statistics Tests: T-test, ChiSquare-test, OLS ([slide and code](/ProgramSession/statistics_learn.ipynb))
+4. Quantative analysis*: Sharpe ratio, Information ratio, Maxmium Drawndown, etc ([slide and code](/ProgramSession/quant_learn.ipynb))
+5. Time series basic*: smoothing, return, mean, variance, covariance, correlation, visualization, etc ([slide and code](/ProgramSession/time_series_learn.ipynb))
+6. Statistics Tests*: T-test, ChiSquare-test, OLS ([slide and code](/ProgramSession/statistics_learn.ipynb))
 
