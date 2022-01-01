@@ -64,7 +64,7 @@ sharpeRatio = (df['ex_pct_close'].mean() * math.sqrt(252)) / df['ex_pct_close'].
 print("sharpeRatio:", sharpeRatio)
 
 
-## maximumPullback
+## 最大回撤
 def MaxDrawdown(returns):
     l = np.argmax((np.maximum.accumulate(returns) - returns) / np.maximum.accumulate(returns))
     k = np.argmax(returns[:l])
@@ -83,6 +83,6 @@ def cal_half_def(returns):
     half_deviation = (sum((temp - mu) ** 2) / len(temp)) ** 0.5
     return half_deviation
 
-
+# 下行风险
 half_deviation = cal_half_def(np.array(close))
 print("half_deviation:", half_deviation)

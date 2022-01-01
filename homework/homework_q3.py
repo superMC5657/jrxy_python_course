@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 
 def get_list(url):
     r = requests.get(url)
+    # 用BeautifulSoup解析网页,用GB18030编码,不然会乱吗
     content = BeautifulSoup(r.content.decode("gb18030"), "html.parser")
     main_text = content.find("div", class_="main")
     tr_list = main_text.find_all("tr")[2:-1]
@@ -59,6 +60,7 @@ print(res)
 # (a）
 from snownlp import SnowNLP
 
+# sentiment 打分
 df['sentiment'] = df['title'].apply(lambda x: SnowNLP(x).sentiments)
 
 # (b)

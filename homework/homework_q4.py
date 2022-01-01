@@ -35,73 +35,71 @@ import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
 
-# for daily in daily_list:
-#     close_pct_change = daily[['pct_chg', 'close']]
-#     f, ax = plt.subplots(figsize=(14, 10))
-#     corrdf = close_pct_change.corr()
-#     sns.heatmap(corrdf, cmap='RdBu', linewidths=0.05, ax=ax)
-#
-#     # 设置Axes的标题
-#     ax.set_title(daily['ts_code'][0])
-#     plt.show()
+for daily in daily_list:
+    close_pct_change = daily[['pct_chg', 'close']]
+    f, ax = plt.subplots(figsize=(14, 10))
+    corrdf = close_pct_change.corr()
+    sns.heatmap(corrdf, cmap='RdBu', linewidths=0.05, ax=ax)
+
+    # 设置Axes的标题
+    ax.set_title(daily['ts_code'][0])
+    plt.show()
+
+pct_change_list = []
+for daily in daily_list:
+    pct_change = daily['pct_chg']
+    pct_change.name = daily['ts_code'][0]
+    pct_change_list.append(pct_change)
+
+pct_change_df = pd.concat(pct_change_list, axis=1)
+
+f, ax = plt.subplots(figsize=(14, 10))
+corrdf = pct_change_df.corr()
+sns.heatmap(corrdf, cmap='RdBu', linewidths=0.05, ax=ax)
+
+# 设置Axes的标题
+ax.set_title('Correlation between stocks')
+plt.show()
 
 
-# pct_change_list = []
-# for daily in daily_list:
-#     pct_change = daily['pct_chg']
-#     pct_change.name = daily['ts_code'][0]
-#     pct_change_list.append(pct_change)
-#
-# pct_change_df = pd.concat(pct_change_list, axis=1)
-#
-# f, ax = plt.subplots(figsize=(14, 10))
-# corrdf = pct_change_df.corr()
-# sns.heatmap(corrdf, cmap='RdBu', linewidths=0.05, ax=ax)
-#
-# # 设置Axes的标题
-# ax.set_title('Correlation between stocks')
-# plt.show()
-#
-#
-# ## Q4.3
-# def MaxDrawdown(returns):
-#     l = np.argmax((np.maximum.accumulate(returns) - returns) / np.maximum.accumulate(returns))
-#     k = np.argmax(returns[:l])
-#     return (returns[k] - returns[l]) / (returns[l])
-#
-#
-# def cal_half_def(returns):
-#     for i in range(len(returns)):
-#         returns[i] = returns[0] - returns[i]
-#     mu = returns.mean()  # 这里使用的是均值
-#     temp = returns[returns < mu]
-#     half_deviation = (sum((temp - mu) ** 2) / len(temp)) ** 0.5
-#     return half_deviation
-#
-#
-# stocks = []
-# for daily in daily_list:
-#     close_list = daily['close'].values.tolist()
-#     close_list.reverse()
-#     maximum_pullback = MaxDrawdown(close_list)
-#     half_deviation = cal_half_def(np.array(close_list))
-#     print(maximum_pullback, half_deviation)
-#     stocks.append((daily['ts_code'][0], maximum_pullback, half_deviation))
-# stocks.sort(key=lambda x: x[1])
-# stocks = stocks[:len(stocks) // 2]
-# stocks.sort(key=lambda x: x[2])
-# stocks = stocks[:len(stocks) // 2]
-# for stock in stocks:
-#     print(stock[0])
+## Q4.3
+def MaxDrawdown(returns):
+    l = np.argmax((np.maximum.accumulate(returns) - returns) / np.maximum.accumulate(returns))
+    k = np.argmax(returns[:l])
+    return (returns[k] - returns[l]) / (returns[l])
+
+
+def cal_half_def(returns):
+    for i in range(len(returns)):
+        returns[i] = returns[0] - returns[i]
+    mu = returns.mean()  # 这里使用的是均值
+    temp = returns[returns < mu]
+    half_deviation = (sum((temp - mu) ** 2) / len(temp)) ** 0.5
+    return half_deviation
+
+
+stocks = []
+for daily in daily_list:
+    close_list = daily['close'].values.tolist()
+    close_list.reverse()
+    maximum_pullback = MaxDrawdown(close_list)
+    half_deviation = cal_half_def(np.array(close_list))
+    print(maximum_pullback, half_deviation)
+    stocks.append((daily['ts_code'][0], maximum_pullback, half_deviation))
+stocks.sort(key=lambda x: x[1])
+stocks = stocks[:len(stocks) // 2]
+stocks.sort(key=lambda x: x[2])
+stocks = stocks[:len(stocks) // 2]
+for stock in stocks:
+    print(stock[0])
 
 ## Q4.4
 from matplotlib import pyplot as plt
 
+# 绘制子图
 fig, ax = plt.subplots(nrows=2, ncols=1, figsize=(20, 20))
 close_df = close_df.dropna().iloc[::-1]
 close_df_sub = close_df - close_df.iloc[0, :]
-
-
 
 ax[0].plot(close_df_sub)
 ax[0].set_title('Close Price')
@@ -121,6 +119,7 @@ for i in range(6, len(close_df['mean'])):
     ema, std = get_ema_std(six_days)
     ema_list.append(ema)
 
+# 一些精细的设置 学习成本太高
 close_df = close_df[6:]
 close_df['ema'] = ema_list
 close_df_mean_ema = close_df[['mean', 'ema']]

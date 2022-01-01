@@ -12,14 +12,18 @@ tushare_token = '1c8b06446534ae510c8c68e38fc248b99f89ac3814cb55645ae2be72'
 pro = ts.pro_api(tushare_token)
 
 data = pro.stock_basic(exchange='', list_status='L', fields='ts_code,symbol,name,area,industry,list_date')
-data = data[data['list_date'] > '20100101']
-ts_code_list = data.sample(n=10)['ts_code'].values.tolist()
+
+data = data[data['list_date'] > '20100101']  # 过滤掉上市时间不在2010年之前的股票
+
+ts_code_list = data.sample(n=10)['ts_code'].values.tolist()  # 随机选取10只股票
 
 daily_list = []
 for ts_code in ts_code_list:
     daily_list.append(pro.daily(ts_code=ts_code))
 
 ## Q2.2
+
+#  获取vol序列,并以日期为索引,以股票名命名
 vol_list = []
 for daily in daily_list:
     daily.set_index(['trade_date'], inplace=True)
@@ -35,6 +39,7 @@ print(vol_df)
 ## Q2.3
 # (a)
 
+# pct_change序列,同上
 pct_change_list = []
 for daily in daily_list:
     pct_change = daily['pct_chg']
@@ -48,6 +53,8 @@ print(pct_change_df)
 
 two_ = random.sample(list(pct_change_df.columns), k=2)
 pct_change_df_two = pct_change_df[two_]
+
+# 计算两只股票的t检验
 X = pct_change_df_two[two_[0]]
 Y = pct_change_df_two[two_[1]]
 
@@ -61,6 +68,7 @@ print("T_statistic:", t_xy.statistic, "T_pvalue:", t_xy.pvalue)
 
 # (b)
 
+# 用线性回归预测下一天的股价
 close_list = []
 for daily in daily_list:
     series = daily['close']
@@ -99,6 +107,8 @@ print("X_predict:", X_predict)
 print("Y_predict:", Y_predict)
 
 ## Q2.4
+
+# 选取top10
 vol_df24 = vol_df.copy()
 vol_df24['mean'] = vol_df24.mean(axis=1)
 vol_df24_mean_top10_index = vol_df24.loc[vol_df24['mean'].nlargest(n=10).index]
